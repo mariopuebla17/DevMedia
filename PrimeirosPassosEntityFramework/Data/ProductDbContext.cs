@@ -13,6 +13,7 @@ namespace Data
         public ProductDbContext(): base("Name=ProductDB")
         {
             Database.SetInitializer<ProductDbContext>(new CreateDatabaseIfNotExists<ProductDbContext>());
+            Database.Initialize(false);
         }
 
         public DbSet<Produtos> Produtos { get; set; }
