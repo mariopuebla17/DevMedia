@@ -14,5 +14,11 @@ namespace AutenticacaoAspNet.Controllers
         {
             return View();
         }
+
+        [Authorize]
+        public ActionResult Mensagens()
+        {
+            return View();
+        }
     }
 }

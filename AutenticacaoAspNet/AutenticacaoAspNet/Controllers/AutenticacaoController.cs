@@ -90,8 +90,14 @@ namespace AutenticacaoAspNet.Controllers
             if (!String.IsNullOrWhiteSpace(viewmodel.UrlRetorno) || Url.IsLocalUrl(viewmodel.UrlRetorno))
                 return Redirect(viewmodel.UrlRetorno);
             else
-                return RedirectToAction("Index", "Painel");
+                return RedirectToAction("Index", "Home");
 
+        }
+
+        public ActionResult Logout()
+        {
+            Request.GetOwinContext().Authentication.SignOut("ApplicationCookie");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
