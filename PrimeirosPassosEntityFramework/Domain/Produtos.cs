@@ -20,7 +20,7 @@ namespace Domain
         public string Descricao { get; set; }
         [Range(-999999999999.99, 999999999999.99)]
         [Required]
-        public decimal valor { get; set; }
+        public decimal Valor { get; set; }
         
         [ForeignKey("Loja")]
         public int LojaId { get; set; }
