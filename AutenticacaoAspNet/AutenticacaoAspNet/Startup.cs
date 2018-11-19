@@ -14,7 +14,7 @@ namespace AutenticacaoAspNet
         {
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
-                AuthenticationType = "AuthentiocationCookie",
+                AuthenticationType = "ApplicationCookie",
                     LoginPath = new PathString("/Autenticacao/Login")
             });
         }
