@@ -12,6 +12,10 @@ namespace AutenticacaoAspNet.Controllers
         [Authorize]
         public ActionResult Index()
         {
+            if (User.IsInRole("Padrao"))
+            {
+                ViewBag.Mensagem = "Você é um usuário padrão e não poderá alterar dados do sistema.";
+            }
             return View();
         }
 
