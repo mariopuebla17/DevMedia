@@ -16,5 +16,7 @@ namespace AutenticacaoAspNet.Models
         [Required]
         [MaxLength(100)]
         public string Senha { get; set; }
+
+        public TipoUsuario Tipo { get; set; } = TipoUsuario.Padrao; // Ao cadastrar novo usuário, seu default será tipo 'Padrao'
     }
 }

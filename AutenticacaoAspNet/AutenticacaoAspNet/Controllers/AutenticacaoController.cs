@@ -44,7 +44,9 @@ namespace AutenticacaoAspNet.Controllers
             db.Usuarios.Add(novoUsuario);
             db.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            TempData["Mensagem"] = "Cadastro realizado com sucesso. Efetue login.";
+
+            return RedirectToAction("Login");
         }
 
         public ActionResult Login(string ReturnUrl)
@@ -82,7 +84,8 @@ namespace AutenticacaoAspNet.Controllers
             var identity = new ClaimsIdentity(new[]
             {
                 new Claim(ClaimTypes.Name, usuario.Nome),
-                new Claim("Login", usuario.Login)
+                new Claim("Login", usuario.Login),
+                new Claim(ClaimTypes.Role, usuario.Tipo.ToString())
             }, "ApplicationCookie");
 
             Request.GetOwinContext().Authentication.SignIn(identity);
